@@ -37,7 +37,7 @@ http {
 
     server {
     server_name _;
-    listen <%= ENV["PORT"] %>;;
+    listen <%= ENV["PORT"] %>;
     return 301 https://_$request_uri;
     }
 
