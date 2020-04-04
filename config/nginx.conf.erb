@@ -35,17 +35,11 @@ http {
         server unix:/tmp/nginx.socket fail_timeout=0;
     }
 
-    server {
-    server_name _;
-    listen <%= ENV["PORT"] %>;
-    return 301 https://_$request_uri;
-    }
 
     server {
         listen <%= ENV["PORT"] %>  default_server ssl;
-        
+        server_name _;
         keepalive_timeout 5;
-
         
         ssl_certificate /app/hirfty.com_ssl_certificate.cer;  # <-
         ssl_certificate_key /app/_.hirfty.com_private_key.key;  # <-
