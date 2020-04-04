@@ -36,14 +36,14 @@ http {
     }
 
     server {
-    server_name www.hirfty.com;
+    server_name _;
     listen <%= ENV["PORT"] %>;
-    return 301 https://www.hirfty.com$request_uri;
+    return 301 https://_$request_uri;
     }
 
     server {
         listen <%= ENV["PORT"] %>  default_server ssl;
-        server_name www.hirfty.com;
+        server_name _;
         keepalive_timeout 5;
 
         
@@ -54,7 +54,6 @@ http {
 
         location / {
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto https;
             proxy_set_header Host $http_host;
             proxy_redirect off;
             proxy_pass http://app_server;
