@@ -42,7 +42,7 @@ http {
     }
 
     server {
-        listen 443 ssl;
+        listen <%= ENV["PORT"] %> ssl;
         server_name _;
         keepalive_timeout 5;
 
