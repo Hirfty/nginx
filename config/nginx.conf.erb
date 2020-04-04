@@ -36,14 +36,14 @@ http {
     }
 
     server {
-    server_name _;
+    server_name www.hirfty.com;
     listen <%= ENV["PORT"] %>;
-    return 301 https://_$request_uri;
+    return 301 https://www.hirfty.com$request_uri;
     }
 
     server {
         listen <%= ENV["PORT"] %>  default_server ssl;
-        server_name _;
+        server_name www.hirfty.com;
         keepalive_timeout 5;
 
         
